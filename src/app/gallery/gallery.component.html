@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="recuadro">
+    <div class="row">
+      <span class="titulo">{{titles}}</span>
+      <button mz-button   [class.active]="filterBy=='all'" (click)="filterBy= 'all'">all</button>
+      <button mz-button   [class.active]="filterBy == 'boats'" (click)="filterBy= 'boats'">boats</button>
+      <button mz-button   [class.active]="filterBy == 'camping'" (click)="filterBy= 'camping'">camping</button>
+      <button mz-button   [class.active]="filterBy == 'library'" (click)="filterBy= 'library'">library</button>
+    </div>
+    <div class="row">
+      <ul id="list">
+        <li *ngFor="let image of (visibleImages | imageFilter: filterBy)">
+          <a [routerLink]="[ '/image', image.id ]"> 
+            <img src=" {{image.url}} " class="tn" width="200px" height="200px">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
